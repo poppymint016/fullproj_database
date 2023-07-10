@@ -41,7 +41,6 @@ if($result){
     <title>Document</title>
 </head>
 <body>
-    <a href="print.php" class="btn btn-dark my-2">หากต้องการprintคลิกที่นี่</a>
-    <a href="index.php" class="btn btn-dark my-2">กลับหน้าแรก</a>
+    
 </body>
 </html>

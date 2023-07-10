@@ -14,7 +14,39 @@
         $id = str_pad($idd + 1, 7, 0, STR_PAD_LEFT);
         $Trackno = "E-" . $id;
     }
-?>   
+?> 
+<?php
+    if($_SERVER["REQUEST_METHOD"]== "POST")
+    {
+        $Trackingno = $_POST['Trackingno'];
+        $Sname = $_POST['Sname'];
+        $cid = $_POST['cid'];
+        $Saddress = $_POST['Saddress'];
+        $Sphoneno = $_POST['Sphoneno'];
+        $date = $_POST['date'];
+        $Rname = $_POST['Rname'];
+        $Raddress = $_POST['Raddress'];
+        $Rphoneno = $_POST['Rphoneno'];
+        $status = $_POST['status'];
+
+        if(!$connect)
+        {
+            die("connection failed" . mysqli_connect_error());
+        }
+        else
+        {
+            $sql = "insert into trackno(Trackingno,Sname,cid,Saddress,Sphoneno,date,Rname,Raddress,Rphoneno,status)VALUES('$Trackingno','$Sname','$cid','$Saddress','$Sphoneno','$date','$Rname','$Raddress','$Rphoneno','$status')";
+            if(mysqli_query($connect,$sql))
+            {
+                echo "Record ADD";
+            }
+            else
+            {
+                echo "Record Failed";
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +71,7 @@
     </header> 
     
     <div class="page" style="margin-top:8%;line-height: 50px;">
-    <form action="insertData.php" method="post" class="form-floating1">
+    <form action="shipping.php" method="post" class="form-floating1">
 <div class="container1" >    
 <h4><p>ข้อมูลผู้จัดส่ง</p></h4>
 </div>
